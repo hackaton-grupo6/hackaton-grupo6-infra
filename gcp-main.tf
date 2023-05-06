@@ -6,12 +6,6 @@ resource "google_artifact_registry_repository" "my-repo" {
   format = "DOCKER"
 }
 
-# Criando o storage para o dump do sql
-resource "google_storage_bucket" "image-store" {
-  name     = "image-store-bucket"
-  location = "US"
-}
-
 # Criando a instância Base de Dados mySQL
 resource "google_sql_database_instance" "instance" {
   name             = "sql-fiap-grupo06-prod"
