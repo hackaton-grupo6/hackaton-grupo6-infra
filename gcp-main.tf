@@ -28,3 +28,5 @@ resource "google_sql_database_instance" "instance" {
   }
   dump_file_path     = "gs://image-store-bucket/Playlist.sql"
 }
+  deletion_protection  = "true"
+}
