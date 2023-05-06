@@ -13,7 +13,7 @@ resource "google_storage_bucket" "image-store" {
 }
 
 resource "google_storage_default_object_access_control" "public_rule" {
-  bucket = image-store-bucket
+  bucket = "image-store-bucket"
   role   = "READER"
   entity = "allUsers"
 }
