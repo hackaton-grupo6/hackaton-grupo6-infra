@@ -13,7 +13,7 @@ resource "google_storage_bucket" "image-store" {
 }
 
 resource "google_storage_default_object_access_control" "public_rule" {
-  bucket = "image-store-bucket"
+  bucket = "image-store-bucket-fiap-grupo06"
   role   = "READER"
   entity = "allUsers"
 }
@@ -38,5 +38,5 @@ resource "google_sql_source_representation_instance" "instance" {
   port               = 3306
   username           = "sqladmin"
   password           = "sqladmin"
-  dump_file_path     = "gs://image-store-bucket/Playlist.sql"
+  dump_file_path     = "gs://image-store-bucket-fiap-grupo06/Playlist.sql"
 }
