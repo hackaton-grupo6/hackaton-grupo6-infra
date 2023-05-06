@@ -12,8 +12,8 @@ resource "google_storage_bucket" "image-store" {
   location = "US"
 }
 
-resource "google_storage_default_object_acl" "image-store-default-acl" {
-  bucket = google_storage_bucket.image-store.name
+resource "google_storage_default_object_access_control" "public_rule" {
+  bucket = image-store-bucket
   role   = "READER"
   entity = "allUsers"
 }
@@ -25,7 +25,7 @@ resource "google_sql_database_instance" "instance" {
   database_version = "MYSQL_8_0"
   settings {
     tier = "db-f1-micro"
+    dump_file_path     = "gs://image-store-bucket/Playlist.sql"
   }
-  dump_file_path     = "gs://image-store-bucket/Playlist.sql"
   deletion_protection  = "true"
 }
