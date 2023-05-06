@@ -1,7 +1,7 @@
 # Criando Repositorio
 resource "google_artifact_registry_repository" "my-repo" {
   location = var.region
-  repository_id = "labdevops"
+  repository_id = "repos-fiap-grupo06"
   description = "Imagens Docker"
   format = "DOCKER"
 }
@@ -13,7 +13,7 @@ resource "google_sql_database" "database" {
 
 # Criando o Banco de Dados mySQL
 resource "google_sql_database_instance" "instance" {
-  name             = "my-database-instance"
+  name             = "sql-fiap-grupo06"
   region           = "us-central1"
   database_version = "MYSQL_8_0"
   settings {
