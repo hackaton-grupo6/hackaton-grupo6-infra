@@ -12,12 +12,6 @@ resource "google_storage_bucket" "image-store" {
   location = "US"
 }
 
-resource "google_storage_default_object_access_control" "public_rule" {
-  bucket = "image-store-bucket-fiap-grupo06"
-  role   = "READER"
-  entity = "allUsers"
-}
-
 # Criando a instância Base de Dados mySQL
 resource "google_sql_database_instance" "instance" {
   name             = "sql-fiap-grupo06-prod"
@@ -27,16 +21,4 @@ resource "google_sql_database_instance" "instance" {
     tier = "db-f1-micro"
   }
   deletion_protection  = "true"
-}
-
-# Import da base
-resource "google_sql_source_representation_instance" "instance" {
-  name               = "my-instance"
-  region             = "us-central1"
-  database_version   = "MYSQL_8_0"
-  host               = "34.31.81.228"
-  port               = 3306
-  username           = "sqladmin"
-  password           = "sqladmin"
-  dump_file_path     = "gs://image-store-bucket-fiap-grupo06/Playlist.sql"
 }
