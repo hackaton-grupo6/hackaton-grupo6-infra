@@ -23,9 +23,16 @@ resource "google_sql_database_instance" "instance" {
   name             = "sql-fiap-grupo06-prod"
   region           = "us-central1"
   database_version = "MYSQL_8_0"
-  dump_file_path     = "gs://image-store-bucket/Playlist.sql"
   settings {
     tier = "db-f1-micro"
   }
   deletion_protection  = "true"
+}
+
+# Import da base
+resource "google_sql_source_representation_instance" "instance" {
+  name               = "sql-fiap-grupo06-prod"
+  region             = "us-central1"
+  database_version   = "MYSQL_8_0"
+  dump_file_path     = "gs://image-store-bucket/Playlist.sql"
 }
