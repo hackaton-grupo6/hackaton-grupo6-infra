@@ -6,14 +6,9 @@ resource "google_artifact_registry_repository" "my-repo" {
   format = "DOCKER"
 }
 
-resource "google_sql_database" "database" {
-  name     = "my-database"
-  instance = google_sql_database_instance.instance.name
-}
-
-# Criando o Banco de Dados mySQL
+# Criando a instância Base de Dados mySQL
 resource "google_sql_database_instance" "instance" {
-  name             = "sql-fiap-grupo06"
+  name             = "sql-fiap-grupo06-prod"
   region           = "us-central1"
   database_version = "MYSQL_8_0"
   settings {
