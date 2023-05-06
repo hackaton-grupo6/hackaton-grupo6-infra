@@ -1,3 +1,4 @@
+# Criando Repositorio
 resource "google_artifact_registry_repository" "my-repo" {
   location = var.region
   repository_id = "labdevops"
@@ -10,7 +11,7 @@ resource "google_sql_database" "database" {
   instance = google_sql_database_instance.instance.name
 }
 
-# See versions at https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance#database_version
+# Criando o Banco de Dados mySQL
 resource "google_sql_database_instance" "instance" {
   name             = "my-database-instance"
   region           = "us-central1"
