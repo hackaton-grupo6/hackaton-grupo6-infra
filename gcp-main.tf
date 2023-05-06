@@ -31,8 +31,12 @@ resource "google_sql_database_instance" "instance" {
 
 # Import da base
 resource "google_sql_source_representation_instance" "instance" {
-  name               = "sql-fiap-grupo06-prod"
+  name               = "my-instance"
   region             = "us-central1"
   database_version   = "MYSQL_8_0"
+  host               = "34.31.81.228"
+  port               = 3306
+  username           = "sqladmin"
+  password           = "sqladmin"
   dump_file_path     = "gs://image-store-bucket/Playlist.sql"
 }
